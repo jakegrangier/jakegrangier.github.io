@@ -1,0 +1,159 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== BODY ===== */
+body {
+  background-color: #EFEAE8;
+  font-family: "Inter", sans-serif;
+  font-weight: 300;
+  color: #383734;
+}
+
+/* ===== TOP HEADER (JAKE GRANGIER SECTION) ===== */
+.topbar {
+  width: 100%;
+  padding: 90px 0 40px; /* controls how far down the title is */
+  text-align: center;
+}
+
+.page-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 26px;
+  margin: 0;
+  text-align: center;
+  color: #383734;
+}
+
+.page-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 10px 0 0;
+  opacity: 0.8;
+  text-align: center;
+  color: #383734;
+}
+
+/* ===== INTRO DARK SECTION ===== */
+.intro-section {
+  width: 100%;
+  background: #383734;
+  padding: 70px 0;
+}
+
+.intro-text {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+  color: #EFEAE8;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 2;
+  text-align: center;
+}
+
+/* ===== PROJECTS SECTION ===== */
+.projects-section {
+  background: #EFEAE8;
+  padding: 70px 0 90px;
+}
+
+.projects-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.projects-title {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  font-size: 28px;
+  margin: 0;
+}
+
+.projects-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin: 6px 0 0;
+  opacity: 0.8;
+}
+
+/* ===== PROJECT GRID ===== */
+.projects-grid {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 70px;
+}
+
+/* ===== PROJECT CARD ===== */
+.project-card {
+  text-decoration: none;
+  color: #1a1a1a;
+  display: block;
+  text-align: center;
+}
+
+/* ===== PROJECT IMAGE BOX ===== */
+.project-thumb {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 4px solid #2e2e2e;
+  background: #d9d5d2;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== PROJECT TEXT ===== */
+.project-name {
+  font-family: "Montserrat", sans-serif;
+  margin: 22px 0 6px;
+  font-weight: 300;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.project-meta {
+    margin: 6px 0 0;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-size: 12px;
+      opacity: 0.85;
+}
+
+/* ===== HOVER EFFECT ===== */
+.project-card:hover .project-thumb {
+  transform: translateY(-3px);
+  transition: 0.2s ease;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 800px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 45px;
+  }
+}

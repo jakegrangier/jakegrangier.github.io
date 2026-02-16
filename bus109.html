@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BUS 109 | Jake Grangier</title>
+
+  <!-- Google Fonts (same as your site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* ====== RESET ====== */
+    html, body { margin: 0; padding: 0; }
+
+    /* ====== GLOBAL ====== */
+    body{
+      background: #EFEAE8;
+      color: #383734;
+      font-family: "Inter", sans-serif;
+      font-weight: 300;
+    }
+
+    /* ====== TOPBAR (Back link + title) ====== */
+    .topbar{
+      width: 100%;
+      padding: 28px 0 10px;
+      text-align: center;
+    }
+
+    .back-link{
+      display: inline-block;
+      text-decoration: none;
+      color: #383734;
+      opacity: 0.75;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 11px;
+      margin-bottom: 20px;
+    }
+    .back-link:hover{ opacity: 1; }
+
+    .page-title{
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-size: 26px;
+      margin: 0;
+    }
+
+    .page-subtitle{
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin: 10px 0 0;
+      opacity: 0.8;
+    }
+
+    /* ====== MAIN CONTAINER ====== */
+    .container{
+      width: min(1100px, 92%);
+      margin: 0 auto;
+      padding: 20px 0 90px;
+    }
+
+    /* ====== OVERVIEW SECTION ======
+       (Short description + quick details pills) */
+    .overview{
+      text-align: center;
+      max-width: 880px;
+      margin: 35px auto 50px;
+    }
+
+    .overview p{
+      margin: 0;
+      line-height: 2;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      opacity: 0.95;
+    }
+
+    .details{
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 26px;
+    }
+
+    .detail-pill{
+      border: 1px solid rgba(56,55,52,0.35);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ====== SECTION TITLES ====== */
+    .section-title{
+      text-align: center;
+      margin: 0 0 26px;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      font-size: 16px;
+    }
+
+    /* ====== PRESENTATION "HERO" (Cover + CTA buttons) ====== */
+    .presentation-hero{
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 38px;
+      align-items: start;
+      margin: 0 auto 60px;
+    }
+
+    /* Cover image frame (thick border like your thumbnails) */
+    .cover-frame{
+      border: 4px solid #2e2e2e;
+      background: #d9d5d2;
+      overflow: hidden;
+    }
+
+    .cover-frame img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Right-side summary card */
+    .summary-card{
+      
+      border: 1px solid rgba(56,55,52,0.25);
+      background: rgba(255,255,255,0.25);
+      padding: 22px 22px 18px;
+      text-align: center;
+    }
+
+    .summary-heading{
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      font-size: 12px;
+      margin: 0 0 14px;
+      opacity: 0.85;
+     
+    }
+
+    /* Bullet list */
+    .summary-list{
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.9;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      text-align: left;
+      opacity: 0.95;
+      
+    }
+
+    /* Buttons row */
+    .cta-row{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .btn{
+      display: inline-block;
+      text-decoration: none;
+      border: 1px solid rgba(56,55,52,0.55);
+      color: #383734;
+      padding: 10px 14px;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      opacity: 0.95;
+      background: transparent;
+    }
+    .btn:hover{
+      background: rgba(56,55,52,0.08);
+    }
+
+    /* ====== SLIDE GALLERY ======
+       (Grid of slide images) */
+    .slides-grid{
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+
+    .slide-card{
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      
+    }
+
+    .slide-frame{
+      border: 4px solid #2e2e2e;
+      background: #d9d5d2;
+      overflow: hidden;
+    }
+
+    .slide-frame img{
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .slide-caption{
+      margin: 12px 0 0;
+      font-family: "Montserrat", sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 11px;
+      opacity: 0.85;
+      text-align: center;
+    }
+
+    /* ====== OPTIONAL: embed a PDF (if you export the deck as PDF) ====== */
+    .pdf-embed{
+      border: 4px solid #2e2e2e;
+      background: #d9d5d2;
+      width: 100%;
+      height: 720px; /* adjust */
+      overflow: hidden;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 950px){
+      .presentation-hero{
+        grid-template-columns: 1fr;
+      }
+      .summary-heading, .summary-list{ text-align: center; }
+      .summary-list{ padding-left: 0; list-style-position: inside; }
+      .cta-row{ justify-content: center; }
+    }
+
+    @media (max-width: 900px){
+      .slides-grid{
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px){
+      .slides-grid{
+        grid-template-columns: 1fr;
+      }
+      .page-title{ font-size: 22px; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ====== HEADER ====== -->
+  <header class="topbar">
+    <!-- Back link -->
+    <a class="back-link" href="index.html">← Back to Portfolio</a>
+
+    <!-- Title -->
+    <h1 class="page-title">BUS 109</h1>
+    <p class="page-subtitle">Presentation / Marketing Fundamentals</p>
+  </header>
+
+  <main class="container">
+
+    <!-- ====== OVERVIEW (Description) ====== -->
+    <section class="overview">
+      <!-- EDIT THIS PARAGRAPH to match what your project was actually about -->
+      <p>
+        This BUS 109 project is a presentation focused on applying core marketing concepts to a real-world scenario.
+        My goal was to create a deck that is clear, visually consistent, and easy to follow, with strong hierarchy and clean slide design.
+        The final result balances strategy and design to communicate the key points quickly and professionally.
+      </p>
+
+      <!-- Quick details (edit these labels) -->
+      <div class="details">
+        <span class="detail-pill">Role: Head of Marketing</span>
+        <span class="detail-pill">Tools: PowerPoint / Canva</span>
+        <span class="detail-pill">Deliverables: Slide Deck</span>
+      </div>
+    </section>
+
+    <!-- ====== PRESENTATION HERO (Cover + Summary + Buttons) ====== -->
+    <section>
+      <h2 class="section-title">Presentation Overview</h2>
+
+      <div class="presentation-hero">
+
+        <!-- LEFT: COVER IMAGE
+             Replace "bus109_cover.jpg" with your real cover image file name -->
+        <div class="cover-frame">
+          <img src="bus109_cover.jpg" alt="BUS 109 presentation cover slide">
+        </div>
+
+        <!-- RIGHT: SUMMARY + ACTION BUTTONS -->
+        <div class="summary-card">
+          <h3 class="summary-heading">What This Deck Covers</h3>
+
+          <!-- EDIT these bullets to match your presentation -->
+          <ul class="summary-list">
+            <li>The need for MU Meal Prep (problem + opportunity)</li>
+            <li>Target market and who the service is for</li>
+            <li>Menu options + pricing (ex: breakfast choices)</li>
+            <li>Weekly advertising / promotion plan</li>
+            <li>Long-term strategy and next steps</li>
+          </ul>
+
+          <!-- OPTIONAL: links to files
+               1) Export your deck as PDF and name it bus109_deck.pdf
+               2) Or link to a Google Drive share URL later -->
+          <div class="cta-row">
+            <a class="btn" href="bus109_deck.pdf">View PDF</a>
+            <a class="btn" href="#slides">Slide Gallery</a>
+          </div>
+
+          <!-- NOTE:
+               If you don't have a PDF yet, you can remove the "View PDF" button
+               or keep it and add the file later. -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====== OPTION A: SLIDE GALLERY (Images) ====== -->
+    <section id="slides">
+      <h2 class="section-title">Slide Highlights</h2>
+
+      <!-- Replace slide_01.jpg etc. with your real exported slide images -->
+      <div class="slides-grid">
+
+        <div class="slide-card">
+          <div class="slide-frame">
+            <img src="bus109_cover.jpg" alt="BUS 109 slide 1">
+          </div>
+          <p class="slide-caption">Slide 01</p>
+        </div>
+
+        <div class="slide-card">
+          <div class="slide-frame">
+            <img src="bus109_slide_02.png" alt="BUS 109 slide 2">
+          </div>
+          <p class="slide-caption">Slide 04</p>
+        </div>
+
+        <div class="slide-card">
+          <div class="slide-frame">
+            <img src="bus109_slide_03.jpg" alt="BUS 109 slide 3">
+          </div>
+          <p class="slide-caption">Slide 09</p>
+        </div>
+
+        <div class="slide-card">
+          <div class="slide-frame">
+            <img src="bus109_slide_04.jpg" alt="BUS 109 slide 4">
+          </div>
+          <p class="slide-caption">Slide 20</p>
+        </div>
+
+        <div class="slide-card">
+          <div class="slide-frame">
+            <img src="bus109_slide_05.jpg" alt="BUS 109 slide 5">
+          </div>
+          <p class="slide-caption">Slide 26</p>
+        </div>
+
+        <div class="slide-card">
+          <div class="slide-frame">
+            <img src="bus109_slide_06.jpg" alt="BUS 109 slide 6">
+          </div>
+          <p class="slide-caption">Slide 35</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ====== OPTION B: PDF EMBED (Optional)
+         If you export your slides as a PDF, you can embed it.
+         To use:
+         - Put bus109_deck.pdf in the same folder
+         - Uncomment this whole block
+
+    <section style="margin-top: 70px;">
+      <h2 class="section-title">Full Deck</h2>
+      <iframe class="pdf-embed" src="bus109_deck.pdf" title="BUS 109 Deck PDF"></iframe>
+    </section>
+
+    -->
+
+  </main>
+</body>
+</html>
